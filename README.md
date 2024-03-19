@@ -193,30 +193,34 @@ curl -k "https://api.sys.XXXXXX.vmware.com/v3/roles" \
 
 #### Create Org Quotas
 ```
-curl "https://api.XXXXXX/v3/organization_quotas" \
+curl -k "https://api.XXXXXX.vmware.com/v3/organization_quotas" \
   -X POST \
-  -H "Authorization: bearer [token]" \
+  -H "Authorization: bearer $token" \
   -H "Content-type: application/json" \
   -d '{
-    "name": "don-quixote",
-    "apps": {
-      "total_memory_in_mb": 5120,
-      "per_process_memory_in_mb": 1024,
-      "log_rate_limit_in_bytes_per_second": 1024,
-      "total_instances": 10,
-      "per_app_tasks": 5
-    },
-    "services": {
-      "paid_services_allowed": true,
-      "total_service_instances": 10,
-      "total_service_keys": 20,
-    },
-    "routes": {
-      "total_routes": 8,
-      "total_reserved_ports": 4
-    },
-    "domains": {
-      "total_private_domains": 7
-    }
-  }'
+  "name": "arul-don-quixote",
+  "apps": {
+    "total_memory_in_mb": 5000,
+    "per_process_memory_in_mb": 5000,
+    "total_instances": 50,
+    "per_app_tasks": null,
+    "log_rate_limit_in_bytes_per_second": 1000
+  },
+  "services": {
+    "paid_services_allowed": true,
+    "total_service_instances": 10,
+    "total_service_keys": 10
+  },
+  "routes": {
+    "total_routes": 10,
+    "total_reserved_ports": null
+  },
+  "domains": {
+    "total_domains": 10
+  }
+}'
+```
+#### Output
+```
+{"guid":"812f7156-d3b7-474c-80a3-a734c9d47184","created_at":"2024-03-19T15:29:33Z","updated_at":"2024-03-19T15:29:33Z","name":"arul-don-quixote","apps":{"total_memory_in_mb":5000,"per_process_memory_in_mb":5000,"total_instances":50,"per_app_tasks":null,"log_rate_limit_in_bytes_per_second":1000},"services":{"paid_services_allowed":true,"total_service_instances":10,"total_service_keys":10},"routes":{"total_routes":10,"total_reserved_ports":null},"domains":{"total_domains":10},"relationships":{"organizations":{"data":[]}},"links":{"self":{"href":"https://api.XXXXXX.vmware.com/v3/organization_quotas/812f7156-d3b7-474c-80a3-a734c9d47184"}}}%
 ```
