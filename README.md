@@ -5,7 +5,7 @@
 ### CURD functionality of  user,roles and other resources via API for TAS(cloud foundry)
 
 <p align="center">
-<img src="api-flow.png" width="300" alt="Online Boutique" />
+<img src="api-flow.png" width="1000" alt="Online Boutique" />
 </p>
 
 ```
