@@ -8,13 +8,14 @@
 <img src="api-flow.png" width="1500" alt="Online Boutique" />
 </p>
 
+#### Login with Admin Client Creds
 ```
 curl -k https://uaa.<SYSTEM-DOMAIN>/oauth/token -u "admin:XXXXXXXXXXXXXXXXXXX" -d grant_type=client_credentials
 ```
 ```
 {"access_token":"XXXXXXXXXXXXXXXXXX","token_type":"bearer","expires_in":43199,"scope":"clients.read password.write clients.secret clients.write uaa.admin scim.write scim.read","jti":"65641e18a12d4174aeba272f3b38e528"}%
 ```
-####
+#### Fetch token
 ```
 uaac token client get admin -s XXXXXXXXXXXXXXXXXXX
 WARNING: Decoding token without verifying it was signed by its authoring UAA
@@ -39,10 +40,6 @@ uaac client add admin-client -s admin-client  --authorized_grant_types client_cr
   required_user_groups:
   lastmodified: 1710054787000
   id: admin-client
-````
-
-```
-curl -k https://uaa.<SYSTEM-DOMAIN>/oauth/token -u "admin-client:admin-client" -d grant_type=client_credentials
 ```
 
 #### Fetch token
