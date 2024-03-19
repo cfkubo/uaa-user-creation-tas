@@ -8,6 +8,8 @@
 <img src="api-flow.png" width="1500" alt="Online Boutique" />
 </p>
 
+### Procedure to create Admin client on TAS
+
 #### Login with Admin Client Creds
 ```
 curl -k https://uaa.<SYSTEM-DOMAIN>/oauth/token -u "admin:XXXXXXXXXXXXXXXXXXX" -d grant_type=client_credentials
@@ -42,9 +44,11 @@ uaac client add admin-client -s admin-client  --authorized_grant_types client_cr
   id: admin-client
 ```
 
+### Procedure for Admin client 
+
 #### Fetch token
 ```
-curl -k https://uaa.<SYS-DOMAIN>/oauth/token -u "admin:XXXXXXXXXXXXXXXXXXXX" -d grant_type=client_credentials
+curl -k https://uaa.<SYS-DOMAIN>/oauth/token -u "admin-client:<admin-client-password>" -d grant_type=client_credentials
 ```
 #### Sample output
 ```
